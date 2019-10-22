@@ -24,7 +24,7 @@ The last device is a ds18b20 one wire temperature sensor.  It obviously uses 'on
 microcontroller.  I included this device just to see how many devices I could utilize in this project.  It is set up for degrees F.
 
 So, to test a battery with this device, it has to be at least 5 volts dc.  This minimum is required so the dc-dc buck converter has enough head room to get a 3.3 volt output for the devices on the circuit board.  
-Note: The STM32 microcontroller only takes a new reading every ten seconds.
+Note: The STM32 microcontroller only takes a new reading every three seconds.
 Lets say we use a NiMH 10 cell battery with a nominal 12 volts output.  Preliminary measurements made with this voltage has the circuitry drawing around 150 mA.  With the 6 ohm currrent test resistor switch R1 in the open position the bus voltage should display 12 volts and the current and watts would be zero as the current only measures the flow through the 6 ohm test resistor.  Closing the R1 switch should cause the current to rise up to around 2000 mA and the bus voltage to drop. Only leave R1 closed for around a 25 second duration. This voltage drop will give you an indication of battery condition and capacity.  You can make up a chart for logging to test a battery under various conditions of charge and age.
 
 As always, please use this information only if you are competent in the use of electronics and the safety practices necessary.
