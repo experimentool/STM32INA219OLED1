@@ -14,7 +14,7 @@ The Arduino IDE must also have the appropriate changes performed to allow progra
 The C++ Arduino code program loaded on this controller is named stm32ina219oled1.ino and is included in this project file with the 
 appropriate library files.  The ino file contains many comments to help in the understanding of how the device works.
 
-The next device is the ina219 voltage measurement board.  It uses I2C communication with the STM32 microcontroller to supply the bus voltage and current.  It has a 100 milliohm resistor onboard that is used as a current shunt.  For example; if the current supplied from the source is 3200 mA, the voltage across the shunt would be 320 mV or the max that this device is capable of reading with the 100 miiliohm resistor.
+The next device is the ina219 voltage measurement board.  It uses I2C communication with the STM32 microcontroller to supply the bus voltage and current.  It has a 100 milliohm resistor onboard that is used as a current shunt.  For example; if the current supplied from the source is 3200 mA, the voltage across the shunt would be 320 mV or the max that this device is capable of reading with the 100 milliohm resistor.
 You could remove the 100 milliohm resistor and put in an external shunt to measure larger current levels.  The adafruit ina219 libraries
 have to be changed to do this. 
 
