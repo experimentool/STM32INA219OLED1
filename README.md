@@ -1,8 +1,15 @@
 # STM32INA219OLED1
-LITHIUM NIMH NICAD BATTERY VOLTS AND CURRENT TESTER
-This project was developed to allow measurement of voltage, current and watts from > 5 to < 20 volts DC.  
-Maximum current applied must be < 3200 mA.
+
+## LITHIUM NIMH NICAD BATTERY VOLTS AND CURRENT TESTER
+
+<a href="Assembled_STM32INA219OLED1.jpg"><img src="Assembled_STM32INA219OLED1.jpg?raw=true" alt="Picture of Assembled BATTERY VOLTS AND CURRENT TESTER STM32" width=500></a>
+
+This project was developed to allow measurement of voltage, current and watts from > 5 to < 20 volts DC. Maximum current applied must be < 3200 mA.
+
 I will explain the operation of the circuit board first.  So refer to the pdf of the schematic diagram during this explanation.
+
+<a href="Schematic_STM32INA219OLED1_Sheet_1_20191021193512.pdf"><img src="Schematic_STM32INA219OLED1_Sheet_1_20191021193512.jpg?raw=true" alt="Schematic of BATTERY VOLTS AND CURRENT TESTER STM32" width=500></a>
+
 The first component to discuss is the DC-DC buck converter utilizing a 1584 IC.  It is set up to take input voltages from > 5 volts to
 < 20 volts DC and the output will be 3.3 volts DC with a current capability of around 1 amp.  This 3.3 volt output will be used to power 
 up all of the active devices on the circuit board.
@@ -20,11 +27,15 @@ have to be changed to do this.
 The next device is the ssd1306 oled display.  It is using spi communication with the STM32 microcontroller.  By perusing the ino program 
 you will determine the text that will be displayed.  Parameters such as bus voltage, current, watts and temperature are included.
 
+<a href="OLED_STM32INA219OLED1.jpg"><img src="OLED_STM32INA219OLED1.jpg?raw=true" alt="Picture of OLED on BATTERY VOLTS AND CURRENT TESTER STM32" width=500></a>
+
 The last device is a ds18b20 one wire temperature sensor.  It obviously uses 'one wire' as the communication protocol with the STM32
 microcontroller.  I included this device just to see how many devices I could utilize in this project.  It is set up for degrees F.
 
 So, to test a battery with this device, it has to be at least 5 volts dc.  This minimum is required so the dc-dc buck converter has enough head room to get a 3.3 volt output for the devices on the circuit board.  
+
 Note: The STM32 microcontroller only takes a new reading every three seconds.
 Lets say we use a NiMH 10 cell battery with a nominal 12 volts output.  Preliminary measurements made with this voltage has the circuitry drawing around 150 mA.  With the 6 ohm currrent test resistor switch R1 in the open position the bus voltage should display 12 volts and the current and watts would be zero as the current only measures the flow through the 6 ohm test resistor.  Closing the R1 switch should cause the current to rise up to around 2000 mA and the bus voltage to drop. Only leave R1 closed for around a 25 second duration. This voltage drop will give you an indication of battery condition and capacity.  You can make up a chart for logging to test a battery under various conditions of charge and age.
 
 As always, please use this information only if you are competent in the use of electronics and the safety practices necessary.
+
